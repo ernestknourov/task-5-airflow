@@ -1,0 +1,7 @@
+//Top 5 famous commentaries
+db.tiktok.find({},{"thumbsUpCount":1,"content":1,"_id":0}).sort({"thumbsUpCount":-1}).limit(5).pretty()
+
+//All records, where the length of field “content” is less than 5 characters
+
+
+//Average rating by each day (should be in timestamp type)
