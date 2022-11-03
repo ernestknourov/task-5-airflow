@@ -13,7 +13,7 @@ PASSWORD = os.getenv('PASSWORD')
 CLUSTER_ADDRESS = os.getenv('CLUSTER_ADDRESS')
 DB_NAME = os.getenv('DB_NAME')
 COLLECTION_NAME = os.getenv('COLLECTION_NAME')
-
+PATH_TO_DATA = os.getenv('PATH_TO_DATA')
 
 @dag(
     schedule=None,
@@ -61,7 +61,7 @@ def pipeline() -> None:
         except BulkWriteError as bwe:
             print(bwe.details)
 
-    path_to_csv = '/home/user/Downloads/tiktok_google_play_reviews.csv'
+    path_to_csv = PATH_TO_DATA
     path_to_clear_data = get_and_clean_data(path_to_csv)
     load_data(path_to_clear_data)
 
